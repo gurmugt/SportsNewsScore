@@ -3,9 +3,9 @@ import { Menu, Transition } from '@headlessui/react';
 import { UserCircleIcon, CogIcon } from '@heroicons/react/outline';
 import Logo from '../assets/images/Logo.jpg';
 import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 const userNavigation = [
-  { name: 'Profile', href: '#' },
   { name: 'Sign out', href: '/logout' },
 ];
 

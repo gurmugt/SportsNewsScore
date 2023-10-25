@@ -1,13 +1,45 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'; 
-import AppLayout from './common/index';
+/* eslint-disable react/react-in-jsx-scope */
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate
+} from 'react-router-dom'
+import Notfound from './pages/Notfound'
+import Signup from './pages/signup'
+import Signin from './pages/signin'
+import NavBar from './common/NavBar'
 
-export default function App() {
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Signup />
+  },
+  {
+    path: '/signup',
+    element: <Signup />
+  },
+  {
+    path: '/signin',
+    element: <Signin />
+  },
+  {
+    path: '/dashboard',
+    element: <NavBar />
+  },
+  {
+    path: '/notfound',
+    element: <Notfound />
+  },
+  {
+    path: '*',
+    element: <Navigate to="/notfound" />
+  }
+])
+
+const App = () => {
   return (
-    <Router> 
-      <div className="text-3xl font-bold">
-        <AppLayout />
-      </div>
-    </Router>
-  );
+    <RouterProvider router={router} />
+  )
 }
+
+export default App
