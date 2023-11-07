@@ -1,17 +1,13 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import AppLayout from "../common/index"
-import ProtectedRoute from "./ProtectedRoute"
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Signin from "../pages/signin"
 import Signup from "../pages/signup"
+import AppLayout from "../common/index"
 import Logout from "../pages/logout";
 import Notfound from "../pages/Notfound";
 import React from "react";
-
+import ProtectedRoute from "./ProtectedRoute"
 const router = createBrowserRouter([
-  {
-    path: "/", 
-    element: <Signin />
-  },
+  { path: "/", element: <Navigate to="/dashboard" replace /> },
   {
     path: "/signin", 
     element: <Signin />
@@ -28,6 +24,10 @@ const router = createBrowserRouter([
     path: "/notfound", 
     element: <Notfound /> 
   },
+  {
+    path: "*",
+    element: <Navigate to="/notfound" />,
+  },
   // Protected Routes
   {
     path: "dashboard",
@@ -37,12 +37,5 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-
-  {
-    path: "*",
-    element: <Navigate to="/notfound" />,
-  },
-
 ]);
-
 export default router;

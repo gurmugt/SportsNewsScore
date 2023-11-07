@@ -4,6 +4,9 @@ import { UserCircleIcon, CogIcon } from '@heroicons/react/outline';
 import Logo from '../assets/images/Logo.jpg';
 import { useLocation } from 'react-router-dom';
 import React from 'react';
+import Matches from '../pages/matches';
+import Articles from '../pages/articles';
+import Favourites from '../pages/favourites/Favourites';
 
 const userNavigation = [
   { name: 'Sign out', href: '/logout' },
@@ -15,6 +18,7 @@ const NavBar = () => {
   const { pathname } = useLocation();
 
   return (
+    <div>
     <div className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -73,6 +77,22 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+    </div>
+    
+    <div>
+            <div className="flex flex-row">
+                <Matches/>
+            </div>
+            <div className="grid grid-cols-5 bg-gray-100">
+                <div className="col-start-1 col-span-3">
+                    <Articles/>
+                </div>
+                <div className="col-start-4 col-span-2 py-3 px-14 bg-gray-200">
+                    <Favourites/>
+                </div>
+            </div>
+        </div>
+
     </div>
   );
 };
