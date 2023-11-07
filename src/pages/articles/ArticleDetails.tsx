@@ -48,7 +48,6 @@ const ArticleDetails: React.FC<{id:number}>=({id}) =>{
         <>
         <div>
         <button type="button" onClick={openModal} className="underline">Read more...</button>
-
         </div>
         <div>
             <Transition appear show={isOpen} as={Fragment}>

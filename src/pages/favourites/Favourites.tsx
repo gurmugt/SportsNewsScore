@@ -94,16 +94,17 @@ export default function Favourites(){
         <>
         <div>
             <p className="text-xl font-bold mb-4">Favourites</p>
-            <select name="sports" id="sports" onChange={(e)=>selectSport(parseInt(e.target.value,10)||null)} className="p-2 border rounded-lg">
-                <option value="" >Select sport</option>
+            <select name="sports" id="sports" onChange={(e)=>selectSport(parseInt(e.target.value,10)||null)} className="p-2 mb-2 border rounded-lg">
+                <option value="">Select sport</option>
                 {sportsData.map(
                     (sport:any)=>(
                         <option key={sport.id} value={sport.id}>{sport.name}</option>
                     )
                 )}
                 </select>
+                <br/> 
             {teamsData && (
-            <select name="teams" id="teams" onChange={(e) => selectTeam(parseInt(e.target.value, 10) || null)} className="p-2 border rounded-lg">
+            <select name="teams" id="teams" onChange={(e) => selectTeam(parseInt(e.target.value, 10) || null)} className="p-2 mb-4 border rounded-lg">
                 <option value="">Select team</option>
                 {teamsData
                 .filter(
@@ -122,8 +123,8 @@ export default function Favourites(){
                 <div className="flex flex-col gap-3">
                     {filteredArticles.map((article:any)=>(
                         <div key={article.id} className="border rounded-lg shadow-lg p-4  bg-white">
-                            <h2>{article.sport.name}</h2>
-                            <h2>{article.title}</h2>
+                            <h2 className="font-semibold">{article.sport.name}</h2>
+                            <h2 className="text-xl font-bold mb-4">{article.title}</h2>
                             <p>{article.summary}</p>
                             <div>{fullArticleDetails(article.id)}</div>
                         </div>

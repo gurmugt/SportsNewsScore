@@ -62,7 +62,7 @@ const [sortOrder,setSortOrder] = useState("date")
           <button className="px-4 py-1 rounded border bg-gray-300">
           <label>Sort by:</label>
         <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-          <option value="date">Date</option>
+          <option value="date" className="bg-gray-300">Date</option>
           <option value="title">Title</option>
         </select>
         </button>

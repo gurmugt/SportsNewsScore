@@ -83,11 +83,11 @@ const NavBar = () => {
             <div className="flex flex-row">
                 <Matches/>
             </div>
-            <div className="grid grid-cols-5 bg-gray-100">
+            <div className="grid grid-cols-5 bg-gray-100 ml-5 mr-5">
                 <div className="col-start-1 col-span-3">
                     <Articles/>
                 </div>
-                <div className="col-start-4 col-span-2 py-3 px-14 bg-gray-200">
+                <div className="ml-14 col-start-4 col-span-3 py-3 px-14 bg-gray-200">
                     <Favourites/>
                 </div>
             </div>
