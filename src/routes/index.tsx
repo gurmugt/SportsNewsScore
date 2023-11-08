@@ -6,8 +6,10 @@ import Logout from "../pages/logout";
 import Notfound from "../pages/Notfound";
 import React from "react";
 import ProtectedRoute from "./ProtectedRoute"
+import Home from '../pages/home/Home'
+
 const router = createBrowserRouter([
-  { path: "/", element: <Navigate to="/dashboard" replace /> },
+  { path: "/", element: <Home/> },
   {
     path: "/signin", 
     element: <Signin />

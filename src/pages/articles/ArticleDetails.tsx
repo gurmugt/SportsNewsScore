@@ -60,7 +60,7 @@ const ArticleDetails: React.FC<{ id: number }> = ({ id }) => {
         <Transition appear show={isOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="fixed inset-0 flex items-center justify-center z-50"
+            className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm"
             onClose={closeModal}
           >
             <div className="fixed inset-0 flex items-center justify-center">
@@ -108,7 +108,7 @@ const ArticleDetails: React.FC<{ id: number }> = ({ id }) => {
                         <h2>{ArticleData.sport.name}</h2>
                         <h2>{new Date(ArticleData.date).toLocaleDateString()}</h2>
                         <div className="w-1/2">
-                          <img src={ArticleData.thumbnail} className="w-40 h-40 mx-auto rounded" />
+                          <img src={ArticleData.thumbnail} className="w-full h-60 mx-auto rounded" />
                         </div>
                         <p>{ArticleData.content}</p>
                       </div>

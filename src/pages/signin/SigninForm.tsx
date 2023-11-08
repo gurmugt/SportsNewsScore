@@ -7,7 +7,7 @@ const SigninForm: React.FC = () => {
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
@@ -31,7 +31,7 @@ const SigninForm: React.FC = () => {
       localStorage.setItem('userData', JSON.stringify(data.user));
        
       // Redirect users to dashboard path after login
-       navigate("/dashboard")
+      navigate("/dashboard")
     } catch (error) {
       console.error('Sign-in failed:', error);
     }
@@ -48,8 +48,11 @@ const SigninForm: React.FC = () => {
         <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
       </div>
       <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign In</button>
+
+      <p className="text-gray-700 text-center mt-4">
+        Don't have an account? <span className="text-blue-500 cursor-pointer" onClick={() => navigate('/signup')}>Sign up</span>
+      </p>
     </form>
   );
 };
-
 export default SigninForm;

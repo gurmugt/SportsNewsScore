@@ -142,6 +142,18 @@ const Preferences = () => {
                 as="h3"
                 className="text-xl font-bold text-black leading-6 text-black p-2 mb-5 text-center"
               >
+                <button onClick={closeModal} className="text-gray-500 hover:text-red-700 absolute top-2 right-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
                PREFERENCES
               </Dialog.Title>
               <p className="mb-3 text-xl font-bold text-black text-purple-900">Favourite Sports</p>
