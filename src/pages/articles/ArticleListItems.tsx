@@ -45,7 +45,7 @@ const [sortOrder,setSortOrder] = useState("date")
         <div className="space-x-4">
         <button
             onClick={() => setSelectedSport("All")}
-            className={`${selectedSport === "All" ? " text-lg font-bold underline" : ""}`}
+            className={`${selectedSport === "All" ? "font-bold underline" : ""}`}
           >
             Your News
           </button>
@@ -53,7 +53,7 @@ const [sortOrder,setSortOrder] = useState("date")
             <button
               key={index}
               onClick={() => setSelectedSport(sport)}
-              className={`${selectedSport === sport ? "text-lg font-bold underline" : ""}`}
+              className={`${selectedSport === sport ? "font-bold underline" : ""}`}
             >
               {sport}
             </button>

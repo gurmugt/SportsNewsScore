@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchTeams } from "../../context/teams/action"; 
 import { API_ENDPOINT } from "../../config/constants";
 import { Dialog,Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -93,7 +92,7 @@ const Preferences = () => {
     } catch (error) {
       console.error("Error saving preferences:", error);
     }
-    navigate("/homepage");
+    navigate("/dashboard");
   };
   
 
@@ -141,53 +140,63 @@ const Preferences = () => {
             <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white text-white p-6 text-left align-middle shadow-xl transition-all rounded-lg">
               <Dialog.Title
                 as="h3"
-                className="text-xl font-bold text-black leading-6 text-black p-2 text-center"
+                className="text-xl font-bold text-black leading-6 text-black p-2 mb-5 text-center"
               >
-                Choose Favorites
+               PREFERENCES
               </Dialog.Title>
-              <p className="mb-3 text-xl font-bold text-black">Sports</p>
-              <div className="flex flex-wrap gap-4">
-                {sportsData.map((sport: any) => (
-                    <div key={sport.id}>
-                        <input
-                            type="checkbox"
-                            name={sport.name}
-                            id={sport.id}
-                            data-category="sports"
-                            onChange={handleModalInputChange}
-                        />
-                        <span className="font-bold text-black"> {sport.name}</span>
-                    </div>
-                ))}
-              </div>
-              <p className="mb-3 text-xl font-bold text-black">Teams</p>
-              <div className="flex flex-wrap gap-4">
-              {teamsData.map((team: any) => (
-                <div key={team.id}>
-                    <input
+              <p className="mb-3 text-xl font-bold text-black text-purple-900">Favourite Sports</p>
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 bg-gray-100">
+              {sportsData.map((sport) => (
+                <div
+                  key={sport.id}
+                  className="flex items-center p-1 bg-white rounded-lg shadow-md hover:shadow-lg mr-1 ml-1 mb-2 mt-2"
+                >
+                  <input
                     type="checkbox"
-                    name={team.name}
-                    id={team.id}
-                    data-category="teams"
+                    name={sport.name}
+                    id={sport.id}
+                    data-category="sports"
                     onChange={handleModalInputChange}
-                    />
-                    <span className="font-bold text-black"> {team.name}</span>
+                    className="mr-1 form-checkbox text-blue-500"
+                  />
+                  <span className="font-bold text-black">{sport.name}</span>
                 </div>
-                ))}
+                  ))}
               </div>
+
+              <p className="mb-3 text-xl font-bold text-black text-purple-900">Favourite Teams</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 bg-gray-100">
+                {teamsData.map((team) => (
+                  <div
+                    key={team.id}
+                    className="flex items-center p-2 bg-white rounded-lg shadow-md hover:shadow-lg mr-1 ml-1 mb-2 mt-2"
+                  >
+                    <input
+                      type="checkbox"
+                      name={team.name}
+                      id={team.id}
+                      data-category="teams"
+                      onChange={handleModalInputChange}
+                      className="mr-1 form-checkbox text-blue-500"
+                    />
+                    <span className="font-bold text-black">{team.name}</span>
+                  </div>
+                ))}
+            </div>
+
               <div className="flex justify-center gap-2">
-                <button
-                className="text-black border border-black p-1 rounded"
-                  onClick={handleSavePreferences}
-                >
-                  Save
-                </button>
-                <button
-                className="text-black border border-black p-1 rounded"
-                  onClick={closeModal}
-                >
-                  Cancel
-                </button>
+              <button
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              onClick={handleSavePreferences}
+            >
+              Save
+            </button>
+            <button
+              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+              onClick={closeModal}
+            >
+              Cancel
+            </button>
               </div>
             </Dialog.Panel>
           </Transition.Child>

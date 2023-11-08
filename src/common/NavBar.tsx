@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { UserCircleIcon, CogIcon } from '@heroicons/react/outline';
 import Logo from '../assets/images/Logo.jpg';
@@ -7,14 +7,34 @@ import React from 'react';
 import Matches from '../pages/matches';
 import Articles from '../pages/articles';
 import Favourites from '../pages/favourites/Favourites';
+import UserPreferences from '../pages/userpreferences/UserPreferences'
 
 const userNavigation = [
   { name: 'Sign out', href: '/logout' },
 ];
 
+const guestUser = [
+  { name: 'Sign up' , href: '/users'},
+  { name: 'Sign in' , href: '/users/sign_in'}
+]
+
+type User = string | null
+ 
 const classNames = (...classes) => classes.filter(Boolean).join(' ');
 
 const NavBar = () => {
+  const authToken: User = localStorage.getItem("authToken")
+  const [user,setUser] = useState<User>(null)
+
+  useEffect(()=>{
+    if(authToken){
+      setUser(authToken)
+    }else{
+      setUser(null)
+    }
+  },[authToken])
+
+  const userHandler = user ? userNavigation : guestUser
   const { pathname } = useLocation();
 
   return (
@@ -36,15 +56,13 @@ const NavBar = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <div className="text-gray-400 hover:text-blue-600">
-                <CogIcon className="h-10 w-10" aria-hidden="true" />
-              </div>
-              <Menu as="div" className="relative ml-3">
-                <div>
-                  <Menu.Button className="rounded-full bg-white p-1 text-gray-400 hover:text-blue-600">
-                    <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
-                  </Menu.Button>
-                </div>
+            <Menu as="div" className="relative ml-3">
+                    <div className='space-x-4 flex'>
+                      <div>{user && <UserPreferences/>}</div>
+                      <Menu.Button className="rounded-full bg-gray-200 p-1 text-black hover:text-sky-600">
+                      <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
+                    </Menu.Button>
+            </div>
                 <Transition
                   as={Fragment}
                   enter="transition ease-out duration-100"
@@ -83,7 +101,7 @@ const NavBar = () => {
             <div className="flex flex-row">
                 <Matches/>
             </div>
-            <div className="grid grid-cols-5 bg-gray-100 ml-5 mr-5">
+            <div className="grid grid-cols-5 bg-green-100 ml-5 mr-5">
                 <div className="col-start-1 col-span-3">
                     <Articles/>
                 </div>

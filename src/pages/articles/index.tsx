@@ -7,7 +7,7 @@ const Articles = () =>{
         <div>
         <div className="text-xl font-bold mb-4">
                 Trending News
-            </div>
+        </div>
             <ArticleList/>
         </div>
         </>
