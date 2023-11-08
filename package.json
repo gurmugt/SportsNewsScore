@@ -17,7 +17,8 @@
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "vite-plugin-pwa": "^0.16.7"
   },
   "devDependencies": {
     "@types/file-loader": "^5.0.1",

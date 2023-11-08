@@ -14,7 +14,7 @@ function Home() {
 
         <div className="space-y-4">
           <Link to="/dashboard">
-            <button className="bg-gray-600 hover:bg-blue-600 text-white py-2 px-4 rounded-full text-lg font-semibold">
+            <button className="bg-blue-600 hover:bg-blue-600 text-white py-2 px-4 rounded-full text-lg font-semibold">
               Go to Dashboard
             </button>
           </Link>
