@@ -47,7 +47,7 @@ Here are some screenshots to give you a sneak peek of our Sports News and Scores
 
 ## Live Application
 
-Ready to dive in and explore the dashboard? Visit our live application by clicking [here](https://yourappurl.com). Sign up and start customizing your sports news and scores experience today.
+Ready to dive in and explore the dashboard? Visit our live application by clicking [here](https://sports-news-score-dashboard.netlify.app/). Sign up and start customizing your sports news and scores experience today.
 
 ## Video Screencast
 
