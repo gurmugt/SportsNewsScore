@@ -23,7 +23,7 @@ export default function MatchListItems(){
           {matches && matches.length > 0 ? (
         matches.map((match:any) => 
           match.isRunning === true &&(
-          <div key={match.id} className="border border-gray-300 bg-white p-4 rounded-md overflow-hidden w-80 h-40 shadow-lg p-4">
+          <div key={match.id} className="border border-gray-500 bg-white p-4 rounded-md overflow-hidden w-80 h-40 shadow-lg p-2 ">
             <h5 className="font-semibold">{match.sportName}</h5>
             <p className="text-gray-700">{match.name.split('at')[0]}</p>
             <div className="mt-4">

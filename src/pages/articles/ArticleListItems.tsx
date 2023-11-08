@@ -11,8 +11,7 @@ const [sortOrder,setSortOrder] = useState("date")
 
   useEffect(() => {
     if (articles) {
-      const uniqueSports = Array.from(new Set(articles.map((article: any) => article.sport.name)));
-      setSports(uniqueSports);
+      setSports(Array.from(new Set(articles.map((article: any) => article.sport.name))));
     }
   }, [articles]);
 
@@ -75,16 +74,22 @@ const [sortOrder,setSortOrder] = useState("date")
             .map((article: any) => (
               
               <div key={article.id} className="border rounded-lg shadow-lg p-4 bg-white">
-                <h5 className="font-semibold">{article.sport.name}</h5>
-                <h4 className="text-xl font-bold mb-4">{article.title}</h4>
-                <h3>{new Date(article.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}</h3>
-                <p>{article.summary}</p>
-                <div>{fullArticleDetails(article.id)}</div>
+              <h5 className="font-semibold">{article.sport.name}</h5>
+              <h4 className="text-xl font-bold mb-4">{article.title}</h4>
+              <div className="flex items-center">
+                <div>
+                  <p>{new Date(article.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}</p>
+                  <p>{article.summary}</p>
+                </div>
+                  <img src={article.thumbnail} alt={article.title} className="w-32 h-32 mx-auto rounded" />
               </div>
+              <div>{fullArticleDetails(article.id)}</div>
+            </div>
+            
             ))
         ) : (
           <span>No articles available for the selected sport.</span>

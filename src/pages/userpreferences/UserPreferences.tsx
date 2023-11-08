@@ -145,7 +145,7 @@ const Preferences = () => {
                PREFERENCES
               </Dialog.Title>
               <p className="mb-3 text-xl font-bold text-black text-purple-900">Favourite Sports</p>
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 bg-gray-100">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 bg-gray-100 ">
               {sportsData.map((sport) => (
                 <div
                   key={sport.id}
